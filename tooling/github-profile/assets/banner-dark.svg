@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 300" width="1280" height="300" role="img" aria-labelledby="t d">
+  <title id="t">Sagar Arora</title>
+  <desc id="d">Senior Data Engineer II at Nesto building modern data pipelines and evidence-grounded AI systems.</desc>
+  <defs>
+    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M32 0H0V32" fill="none" stroke="#1f2722" stroke-width="1"/>
+    </pattern>
+    <linearGradient id="fade" x1="0" x2="1">
+      <stop offset="0" stop-color="#101412"/>
+      <stop offset=".55" stop-color="#101412" stop-opacity=".92"/>
+      <stop offset="1" stop-color="#101412" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect width="1280" height="300" rx="16" fill="#101412"/>
+  <rect width="1280" height="300" rx="16" fill="url(#grid)"/>
+  <rect width="1280" height="300" rx="16" fill="url(#fade)"/>
+
+  <!-- pipeline motif -->
+  <g fill="none" stroke="#354039" stroke-width="2">
+    <path d="M900 90H990V150H1080V90H1170"/>
+    <path d="M990 150V210H1170"/>
+  </g>
+  <g fill="#191f1b" stroke="#c4f279" stroke-width="2">
+    <rect x="876" y="74" width="48" height="32" rx="6"/>
+    <rect x="1056" y="74" width="48" height="32" rx="6"/>
+    <rect x="1146" y="74" width="48" height="32" rx="6"/>
+    <rect x="1146" y="194" width="48" height="32" rx="6"/>
+  </g>
+  <circle cx="990" cy="150" r="7" fill="#c4f279"/>
+
+  <!-- mark -->
+  <g transform="translate(80 64) scale(.75)">
+    <rect width="64" height="64" rx="12" fill="#c4f279"/>
+    <path d="M18 19h28v8H26v6h20v20H18v-8h20v-5H18z" fill="#101412"/>
+  </g>
+
+  <g font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+    <text x="80" y="170" fill="#f1f4ed" font-size="60" font-weight="600" letter-spacing="-2">Sagar Arora</text>
+    <text x="82" y="214" fill="#c4f279" font-size="20" font-weight="600" letter-spacing="2.5">SENIOR DATA ENGINEER II @ NESTO</text>
+    <text x="82" y="250" fill="#b1bcb3" font-size="20">Data pipelines · data modeling · evidence-grounded AI systems</text>
+  </g>
+</svg>
