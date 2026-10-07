@@ -1,0 +1,10 @@
+{
+  "analysis": {
+    "provider": "openai",
+    "model": "YOUR_MODEL_ID"
+  },
+  "review": {
+    "provider": "anthropic",
+    "model": "YOUR_MODEL_ID"
+  }
+}

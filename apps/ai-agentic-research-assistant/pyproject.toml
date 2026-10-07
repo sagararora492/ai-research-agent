@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "agentic-research-assistant"
+version = "1.0.0"
+description = "An evidence-grounded research assistant with a CLI and local web studio."
+readme = "README.md"
+requires-python = ">=3.12"
+authors = [
+  { name = "Sagar Arora" }
+]
+dependencies = []
+
+[project.scripts]
+research-assistant = "agentic_research_assistant.cli:main"
+research-assistant-web = "agentic_research_assistant.web:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+agentic_research_assistant = ["static/*"]

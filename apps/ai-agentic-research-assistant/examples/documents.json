@@ -1,0 +1,14 @@
+[
+  {
+    "title": "Sample interview notes — research workflow",
+    "content": "DEMONSTRATION DATA, NOT REAL RESEARCH. In this fictional research assistant pilot, product analysts need to compare documents, preserve citations, and share research briefs. The primary user need is traceability: a reader should be able to inspect the source passage behind each finding. Success metrics include time to a reviewed brief and the fraction of findings with supporting citations. Operational constraints include limited API budgets and sensitive internal documents."
+  },
+  {
+    "title": "Sample evaluation notes — alternatives and adoption",
+    "content": "DEMONSTRATION DATA, NOT REAL RESEARCH. The fictional team compared manual search, a generic chatbot, and a research assistant with source storage. Manual search made verification possible but required repeated copying. The chatbot produced fluent text without dependable evidence links. The research assistant reduced this workflow bottleneck by keeping evidence and findings together. Adoption depended on reviewers understanding where claims came from; no quantitative time savings were measured."
+  },
+  {
+    "title": "Sample design review — risks and decision criteria",
+    "content": "DEMONSTRATION DATA, NOT REAL RESEARCH. Technical risks for the fictional research assistant include provider outages, stale search snippets, duplicated sources, and unsupported synthesis. Compliance and trust concerns include sending private source text to external model providers. Proposed opportunities include bounded search budgets, local document research, citation validation, and explicit evidence gaps. The team recommends a reviewed pilot before wider deployment; these notes do not establish a business return."
+  }
+]

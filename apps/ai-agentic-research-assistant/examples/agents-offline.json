@@ -1,0 +1,60 @@
+{
+  "models": {},
+  "planner_model": null,
+  "synthesizer_model": null,
+  "max_concurrency": 4,
+  "max_searches": 20,
+  "on_error": "fallback",
+  "research_agents": [
+    {
+      "id": "researcher-01",
+      "focus": "User needs and success metrics",
+      "model": null
+    },
+    {
+      "id": "researcher-02",
+      "focus": "Current alternatives and market landscape",
+      "model": null
+    },
+    {
+      "id": "researcher-03",
+      "focus": "Technical architecture",
+      "model": null
+    },
+    {
+      "id": "researcher-04",
+      "focus": "Data quality and source credibility",
+      "model": null
+    },
+    {
+      "id": "researcher-05",
+      "focus": "Evaluation methods and benchmarks",
+      "model": null
+    },
+    {
+      "id": "researcher-06",
+      "focus": "Security and privacy",
+      "model": null
+    },
+    {
+      "id": "researcher-07",
+      "focus": "Operational cost and scalability",
+      "model": null
+    },
+    {
+      "id": "researcher-08",
+      "focus": "Adoption and workflow integration",
+      "model": null
+    },
+    {
+      "id": "researcher-09",
+      "focus": "Contradictory evidence and limitations",
+      "model": null
+    },
+    {
+      "id": "researcher-10",
+      "focus": "Implementation recommendations and open questions",
+      "model": null
+    }
+  ]
+}

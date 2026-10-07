@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Fieldnotes · Research Assistant</title><link rel="stylesheet" href="/style.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <aside class="sidebar">
+    <a class="brand" href="/" aria-label="Fieldnotes home"><span class="brand-icon">f.</span> fieldnotes<span class="brand-dot">●</span></a>
+    <div class="workspace-label">YOUR WORKSPACE</div>
+    <div class="nav-item active"><span>▤</span> Research studio <span class="nav-count">01</span></div>
+    <div class="sidebar-note"><span class="tiny-dot"></span> LOCAL WORKSPACE<p>From questions to evidence.<br>Keep the source in sight.</p></div>
+    <div class="sidebar-bottom"><div class="avatar">SA</div><div>Research workspace<small>Local · Private by default</small></div></div>
+  </aside>
+  <main>
+    <header><div>Workspace <span class="slash">/</span> <strong>Research studio</strong></div><span class="local-badge"><span class="tiny-dot"></span> Running locally</span></header>
+    <div class="page">
+      <div class="eyebrow">A LITTLE CURIOSITY. A CLEARER PICTURE.</div>
+      <div class="page-heading"><div><h1>Follow the evidence.</h1><p class="subtitle">Ask a question. Explore the sources. Make an informed next move.</p></div><span class="edition">RESEARCH STUDIO<br><b>01 / FIELDNOTES</b></span></div>
+      <div class="studio-grid">
+        <section class="panel inquiry">
+          <div class="panel-heading"><span class="step">01</span><h2>Your research question</h2></div>
+          <form id="research-form">
+            <label for="topic">What would you like to understand?</label>
+            <textarea id="topic" name="topic" rows="4" maxlength="2000" required placeholder="e.g. How should we evaluate a research assistant for our team?"></textarea>
+            <button id="example" class="example" type="button">↗ Try the sample research question</button>
+            <div class="form-row"><div><label for="audience">Audience</label><input id="audience" maxlength="2000" required value="Product and engineering teams"></div></div>
+            <label for="outcome">Desired outcome</label><input id="outcome" maxlength="2000" required value="A decision-ready research brief">
+            <div class="divider"></div>
+            <div class="panel-heading small"><span class="step">02</span><h2>Choose your evidence</h2></div>
+            <label for="provider">Source mode</label><select id="provider"><option value="demo">Sample documents · No API key</option><option value="local">Import documents · JSON</option><option value="tavily">Live web search · Tavily</option><option value="plan">Research plan only</option></select>
+            <p id="source-help" class="helper">Three fictional documents let you explore the workflow. This is demonstration data.</p>
+            <div id="upload-wrap" hidden><label class="upload-label" for="documents">Choose a JSON document collection</label><input id="documents" type="file" accept="application/json,.json"><p class="helper">An array of objects with title, content, and optional url. Up to 2 MB.</p></div>
+            <div class="form-row two"><div><label for="synthesis">Synthesis</label><select id="synthesis"><option value="extractive">Source excerpts</option><option value="openai">OpenAI synthesis</option></select></div><div><label for="max-sources">Sources per task</label><select id="max-sources"><option>3</option><option>5</option><option>10</option></select></div></div>
+            <div id="model-wrap" hidden><label for="model">OpenAI model ID</label><input id="model" placeholder="Use a model available to your account"><p class="helper">Selected source text is sent to OpenAI for synthesis.</p></div>
+            <label class="checkbox"><input type="checkbox" id="team-enabled"> Configure an agent team</label>
+            <section id="team-settings" hidden aria-label="Agent team configuration">
+              <p class="helper">Add as many research agents as you need and assign a locally configured model to each. Selected source text is sent to each assigned provider. Keys stay in server environment variables.</p>
+              <div class="team-actions"><button type="button" id="team-offline" class="secondary">Use excerpts only</button></div>
+              <h3 class="team-heading">Locally configured models</h3><div id="model-profiles"></div><p class="helper">Configure model profiles using the server’s --models-config file. Set API keys in the local shell environment, then restart the server.</p>
+              <h3 class="team-heading">Research agents</h3><div id="agent-assignments"></div><button type="button" id="add-agent" class="secondary">+ Research agent</button>
+              <div class="form-row two"><div><label for="planner-profile">Planner model</label><select id="planner-profile"></select></div><div><label for="synth-profile">Synthesis model</label><select id="synth-profile"></select></div></div>
+              <div class="form-row two"><div><label for="team-concurrency">Run concurrently</label><input id="team-concurrency" type="number" min="1" value="4"></div><div><label for="team-searches">Search budget</label><input id="team-searches" type="number" min="1" value="2"></div></div>
+              <label for="team-errors">If a model fails</label><select id="team-errors"><option value="fallback">Keep evidence and show a warning</option><option value="fail">Fail the session</option></select>
+              <p id="team-summary" class="helper" aria-live="polite"></p>
+              <button type="button" id="export-team" class="secondary">Export configuration ↓</button>
+              <label for="import-team">Import agent configuration</label><input id="import-team" type="file" accept=".json,application/json">
+            </section>
+            <label class="checkbox"><input type="checkbox" id="persist" checked> Save this session locally</label>
+            <div id="error" role="alert" hidden></div>
+            <button id="submit" class="primary" type="submit">Start research <span>↗</span></button>
+            <p class="form-footnote">Evidence first. Uncertainty included.</p>
+          </form>
+        </section>
+        <section class="output" aria-label="Research results">
+          <div class="output-top"><div class="panel-heading"><span class="step">03</span><h2>Research brief</h2></div><span id="status" class="status">Ready when you are</span></div>
+          <div id="empty" class="empty-state"><div class="paper-art"><span class="paper-corner"></span><span class="paper-eyebrow">THE BIG PICTURE</span><div class="paper-title">Good questions.<br>Grounded answers.</div><div class="paper-line long"></div><div class="paper-line"></div><div class="paper-line short"></div><span class="paper-stamp">SOURCE<br>BY SOURCE</span></div><h3>A place for your next discovery.</h3><p>Your research plan, source excerpts, and evidence gaps will come together here.</p><div class="process"><span>01 Plan</span><i>→</i><span>02 Investigate</span><i>→</i><span>03 Synthesize</span></div></div>
+          <div id="loading" class="loading" hidden role="status"><div class="spinner"></div><h3>Following the evidence…</h3><p>Planning tasks, collecting sources, and checking citations.</p><p class="helper">Live providers can take a few minutes. Keep this tab open.</p></div>
+          <div id="results" hidden><div class="result-toolbar"><span id="mode-label"></span><div><button id="copy" type="button" class="secondary">Copy brief</button><button id="download" type="button" class="secondary">Download ↓</button></div></div><div id="warnings"></div><div id="metrics" class="metrics"></div><details id="team-results" hidden><summary>Agent execution · models and outcomes</summary><div id="agent-runs"></div></details><h2 id="result-title" class="result-title"></h2><p id="result-context" class="helper"></p><div class="tabs" role="tablist" aria-label="Brief sections"><button role="tab" id="tab-findings" aria-controls="findings" aria-selected="true" tabindex="0" data-tab="findings">Findings</button><button role="tab" id="tab-sources" aria-controls="sources" aria-selected="false" tabindex="-1" data-tab="sources">Sources</button><button role="tab" id="tab-plan" aria-controls="plan" aria-selected="false" tabindex="-1" data-tab="plan">Research plan</button></div><div id="findings" role="tabpanel" aria-labelledby="tab-findings"></div><div id="sources" role="tabpanel" aria-labelledby="tab-sources" hidden></div><div id="plan" role="tabpanel" aria-labelledby="tab-plan" hidden></div><p id="saved" class="saved"></p></div>
+        </section>
+      </div>
+      <footer><span>FIELDNOTES — AN AGENTIC RESEARCH ASSISTANT</span><span>Clarity starts with a source. <span class="footer-star">✳</span></span></footer>
+    </div>
+  </main>
+</body>
+</html>

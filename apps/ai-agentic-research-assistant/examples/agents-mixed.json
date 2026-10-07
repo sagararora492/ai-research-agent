@@ -1,0 +1,73 @@
+{
+  "models": {
+    "model-a": {
+      "provider": "openai",
+      "model": "YOUR_OPENAI_MODEL_ID"
+    },
+    "model-b": {
+      "provider": "anthropic",
+      "model": "YOUR_ANTHROPIC_MODEL_ID"
+    },
+    "model-c": {
+      "provider": "gemini",
+      "model": "YOUR_GEMINI_MODEL_ID"
+    }
+  },
+  "planner_model": "model-a",
+  "synthesizer_model": "model-b",
+  "max_concurrency": 4,
+  "max_searches": 20,
+  "on_error": "fallback",
+  "research_agents": [
+    {
+      "id": "researcher-01",
+      "focus": "User needs and success metrics",
+      "model": "model-a"
+    },
+    {
+      "id": "researcher-02",
+      "focus": "Current alternatives and market landscape",
+      "model": "model-b"
+    },
+    {
+      "id": "researcher-03",
+      "focus": "Technical architecture",
+      "model": "model-c"
+    },
+    {
+      "id": "researcher-04",
+      "focus": "Data quality and source credibility",
+      "model": "model-a"
+    },
+    {
+      "id": "researcher-05",
+      "focus": "Evaluation methods and benchmarks",
+      "model": "model-b"
+    },
+    {
+      "id": "researcher-06",
+      "focus": "Security and privacy",
+      "model": "model-c"
+    },
+    {
+      "id": "researcher-07",
+      "focus": "Operational cost and scalability",
+      "model": "model-a"
+    },
+    {
+      "id": "researcher-08",
+      "focus": "Adoption and workflow integration",
+      "model": "model-b"
+    },
+    {
+      "id": "researcher-09",
+      "focus": "Contradictory evidence and limitations",
+      "model": "model-c"
+    },
+    {
+      "id": "researcher-10",
+      "focus": "Implementation recommendations and open questions",
+      "model": "model-a"
+    }
+  ]
+}

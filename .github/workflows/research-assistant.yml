@@ -1,0 +1,25 @@
+name: Research assistant
+on:
+  push:
+    paths: ['apps/ai-agentic-research-assistant/**', '.github/workflows/research-assistant.yml']
+  pull_request:
+    paths: ['apps/ai-agentic-research-assistant/**', '.github/workflows/research-assistant.yml']
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ['3.12', '3.13']
+    defaults:
+      run:
+        working-directory: apps/ai-agentic-research-assistant
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '${{ matrix.python-version }}'
+      - run: python -m pip install .
+      - run: python -m unittest discover -s tests -v
+      - run: research-assistant "Research assistants" --provider local --documents examples/documents.json --no-persist
+      - run: research-assistant-web --help
+      - run: python -c "from agentic_research_assistant.web import STATIC; assert (STATIC / 'index.html').is_file(); assert (STATIC / 'app.js').is_file()"
