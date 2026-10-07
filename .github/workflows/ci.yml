@@ -1,18 +1,13 @@
-name: Research assistant
+name: CI
 on:
   push:
-    paths: ['apps/ai-agentic-research-assistant/**', '.github/workflows/research-assistant.yml']
   pull_request:
-    paths: ['apps/ai-agentic-research-assistant/**', '.github/workflows/research-assistant.yml']
 jobs:
   test:
     runs-on: ubuntu-latest
     strategy:
       matrix:
         python-version: ['3.12', '3.13']
-    defaults:
-      run:
-        working-directory: apps/ai-agentic-research-assistant
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
